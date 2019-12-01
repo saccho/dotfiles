@@ -1,0 +1,96 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "files.autoSave": "onFocusChange",
+    "workbench.colorTheme": "Iceberg",
+    "window.zoomLevel": 0,
+    "editor.tabSize": 2,
+
+    "[css]": {
+        "editor.tabSize": 2
+    },
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4
+    },
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    "[python]": {
+        "editor.tabSize": 4
+    },
+    "[rust]": {
+        "editor.tabSize": 4
+    },
+    "[dart]": {
+        "editor.tabSize": 2,
+    },
+    
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+
+    "extensions.autoUpdate": false, //自動アプデをしない
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "ptex2pdf",
+            "tools": [
+                "ptex2pdf",//タイプセットに使うtoolの名前
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [//タイプセットに使うtool一覧
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "ptex2pdf",//ptex2pdf自体の設定はこれまでと一緒
+            "command": "ptex2pdf",
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        {"language": "typescript", "autoFix": true },
+        {"language": "typescriptreact", "autoFix": true }
+    ],
+    "prettier.eslintIntegration": true,
+
+    "dart.flutterCreateOrganization": "com.runn_dev",
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true
+}

@@ -1,0 +1,7 @@
+[core]
+	editor = vi
+[user]
+	email = saccho956@yahoo.co.jp
+	name = saccho
+[url "git@github.com:"]
+  insteadOf "https://github.com/"

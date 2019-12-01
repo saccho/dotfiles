@@ -1,0 +1,16 @@
+### all ignore ###
+/*
+/.**
+
+### not ignore ###
+!/README.md
+!/.gitignore
+
+!/bin/
+!/git/
+/git/.gitconfig
+!/vim/
+/vim/.vim/.netrwhist
+!/vscode/
+!/zsh/
+/zsh/.zprezto
