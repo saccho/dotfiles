@@ -8,9 +8,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install required packages
         run: |
-          brew update
-          brew install git
-          mkdir $HOME/Library/Application\ Support/Code/User
+          mkdir -p $HOME/Library/Application\ Support/Code/User
           touch $HOME/Library/Application\ Support/Code/User/settings.json
       - name: Install dotfiles
         run: bin/install.sh install
@@ -21,9 +19,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install required packages
         run: |
-          sudo apt-get update
-          sudo apt-get install -y git
-          mkdir $HOME/Library/Application\ Support/Code/User
+          mkdir -p $HOME/Library/Application\ Support/Code/User
           touch $HOME/Library/Application\ Support/Code/User/settings.json
       - name: Install dotfiles
         run: bin/install.sh install
