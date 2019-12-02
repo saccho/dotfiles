@@ -6,9 +6,6 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install homebrew
-        run: |
-          yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
       - name: Install required packages
         run: |
           yes | brew update
