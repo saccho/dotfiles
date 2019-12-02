@@ -60,7 +60,7 @@ command echo "Done\!"
 # Zsh
 command echo "Set zsh dotfiles."
 
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "$DOTFILES_DIR/zsh/.zprezto"
+command git clone --recursive https://github.com/sorin-ionescu/prezto.git "$DOTFILES_DIR/zsh/.zprezto"
 
 for f in $DOTFILES_DIR/zsh/.??*; do
   if [[ -L "$HOME/`basename $f`" ]];then
