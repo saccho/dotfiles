@@ -10,8 +10,8 @@ if [ ! -d "$HOME/.dotbackup" ];then
 fi
 
 # VSCode settings
-VSCODE_SETTINGS_DIR=$HOME/Library/Application\ Support/Code/User
-if [ -d $VSCODE_SETTINGS_DIR ];then
+VSCODE_SETTINGS_DIR="$HOME/Library/Application Support/Code/User"
+if [ -d "$VSCODE_SETTINGS_DIR" ];then
   command echo "Set vscode dotfiles."
 
   if [[ -L "$VSCODE_SETTINGS_DIR/settings.json" ]];then
@@ -21,7 +21,7 @@ if [ -d $VSCODE_SETTINGS_DIR ];then
     command mv "$VSCODE_SETTINGS_DIR/settings.json" "$HOME/.dotbackup"
   fi
   
-  command ln -snf "$DOTFILES_DIR/vscode/settings.json" $VSCODE_SETTINGS_DIR
+  command ln -snf "$DOTFILES_DIR/vscode/settings.json" "$VSCODE_SETTINGS_DIR"
 
   # install extentions
   command echo "Install vscode extentions."
