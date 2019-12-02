@@ -1,0 +1,37 @@
+name: CI
+on: [push]
+jobs:
+  mac:
+    name: MacOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install homebrew
+        run: |
+          yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      - name: Install required packages
+        run: |
+          yes | brew update
+          yes | brew install git
+          yes | brew cask install visual-studio-code
+          code
+      - name: Install dotfiles
+        run: bin/install.sh install
+  ubuntu:
+    name: Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install required packages
+        run: |
+          apt-get update
+          apt-get install -y git
+          curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+          apt-get install -y curl
+          yes | install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+          sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+          apt-get install -y apt-transport-https
+          apt-get install -y code
+          code
+      - name: Install dotfiles
+        run: bin/install.sh install
