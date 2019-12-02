@@ -1,15 +1,16 @@
 name: CI
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - "README.md"
 jobs:
   mac:
     name: MacOS
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install required packages
-        run: |
-          mkdir -p $HOME/Library/Application\ Support/Code/User
-          touch $HOME/Library/Application\ Support/Code/User/settings.json
       - name: Install dotfiles
         run: |
           chmod +x bin/install.sh
@@ -19,10 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Install required packages
-        run: |
-          mkdir -p $HOME/Library/Application\ Support/Code/User
-          touch $HOME/Library/Application\ Support/Code/User/settings.json
       - name: Install dotfiles
         run: |
           chmod +x bin/install.sh
