@@ -8,10 +8,10 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install required packages
         run: |
-          yes | brew update
-          yes | brew install git
-          yes | brew cask install visual-studio-code
-          code
+          brew update
+          brew install git
+          mkdir $HOME/Library/Application\ Support/Code/User
+          touch $HOME/Library/Application\ Support/Code/User/settings.json
       - name: Install dotfiles
         run: bin/install.sh install
   ubuntu:
@@ -23,12 +23,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y git
-          curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-          sudo apt-get install -y curl
-          yes | install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-          sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-          sudo apt-get install -y apt-transport-https
-          sudo apt-get install -y code
-          code
+          mkdir $HOME/Library/Application\ Support/Code/User
+          touch $HOME/Library/Application\ Support/Code/User/settings.json
       - name: Install dotfiles
         run: bin/install.sh install
